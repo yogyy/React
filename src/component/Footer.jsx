@@ -1,3 +1,5 @@
+import { Link, NavLink } from 'react-router-dom'
+
 function Footer() {
   return (
     <footer className='p-4 bg-white  shadow md:px-10 md:py-8 dark:bg-gray-900'>
@@ -7,9 +9,9 @@ function Footer() {
         </span>
         <ul className='flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400'>
           <li>
-            <a href='#' className='mr-4 hover:underline md:mr-6 '>
+            <NavLink to='about' className='mr-4 hover:underline md:mr-6 '>
               About
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href='#' className='mr-4 hover:underline md:mr-6'>
@@ -22,9 +24,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href='#' className='hover:underline'>
+            <Link to='/contact' className='hover:underline'>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -33,7 +35,7 @@ function Footer() {
         © 2022 yogy Cons'tantine™ . All Rights Reserved.
       </span>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

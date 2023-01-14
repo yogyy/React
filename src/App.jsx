@@ -1,49 +1,53 @@
 import './App.css';
 import Navbar from './component/Navbar';
 import Footer from './component/Footer';
-import PlaceContentCenter from './component/PlaceContent';
-import Card from './component/Card';
-import { useState, useRef } from 'react';
-import Button from './component/Button';
-import Input from './component/Input';
-import Todo from './component/Todo';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
+import About from './component/About';
+import BlogDetails from './component/BlogsDetails';
+import Create from './component/Create';
+import NotFound from './component/NotFound';
+import Contact from './component/Contact';
+import Home from './component/Home';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Navbar />}>
+      <Route>
+        <Route path='/' index element={<Home />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/create' element={<Create />} />
+        <Route exact path='/contact' element={<Contact />} />
+        <Route path='/blogs/:id' element={<BlogDetails />} />
+      </Route>
+      <Route element={<Footer />} />
+    </Route>
+  )
+);
 
 function App() {
-  const inpuRef = useRef(null);
-  // const tick = useRef(0);
-  // const [tick, setTick] = useState(0);
-
-  function handleClick() {}
-
-  return (
-    <div className=''>
-      <Navbar />
-      <PlaceContentCenter>
-        <Card>
-          <Card.Title>useRef Hooks</Card.Title>
-          <Card.Body>
-            <Input
-              placeholder='Email'
-              isFocused
-              type='text'
-              className='border border-slate-600'
-            />
-            <Input
-              placeholder='Password'
-              type='text'
-              className='border border-slate-600'
-            />
-          </Card.Body>
-
-          <Card.Footer>
-            <Button onClick={handleClick}>bang?</Button>
-          </Card.Footer>
-        </Card>
-        <Todo />
-      </PlaceContentCenter>
-      <Footer />
-    </div>
-  );
+  // return (
+  // <Router>
+  //   <div className='h-screen'>
+  //     <Navbar />
+  //     <Routes>
+  //       <Route exact path='/' element={<Home />} />
+  //       <Route exact path='/about' element={<About />} />
+  //       <Route exact path='/create' element={<Create />} />
+  //       <Route exact path='/contact' element={<Contact />} />
+  //       <Route path='/blogs/:id' element={<BlogDetails />} />
+  //       <Route path='*' element={<NotFound />} />
+  //     </Routes>
+  //     <Footer />
+  //   </div>
+  // </Router>
+  // );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

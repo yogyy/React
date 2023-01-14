@@ -1,9 +1,10 @@
 import React from 'react';
+import { ScrollRestoration } from 'react-router-dom';
 
 function About() {
   return (
-    <div className='bg-gray-700 h-screen grid text-center px-5 text-yellow-300'>
-      <h1 className='text-3xl justify-center items-center flex'>
+    <div className='bg-gray-700 h-screen grid text-center text-yellow-300 text-3xl px-10'>
+      <h1 className=' justify-center items-center flex'>
         abou<span className='overline text-black font-bold'>t me</span>
       </h1>
       <p className='font-mono'>
@@ -17,6 +18,7 @@ function About() {
         menjelajahi tempat-tempat baru. Saya adalah seorang manusia biasa yang
         ingin menjalani hidup dengan baik dan bahagia.
       </p>
+      <ScrollRestoration />
     </div>
   );
 }
